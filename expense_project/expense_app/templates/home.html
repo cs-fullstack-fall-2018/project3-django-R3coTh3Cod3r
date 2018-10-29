@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+Hello {{ user.username }} welcome to Vex Expense Tracker!
+<button><a href="{% url 'logout' %}">Logout</a></button>
+{% else %}
+<h1>Thank you for logging out</h1>
+<p>You are not logged in: Please push the button below to login or push <strong>create a new user</strong> to create a new user</p>
+<button><a href="{% url 'login' %}">Login</a></button>
+
+<p></p>
+<button><a href= "{% url 'makeUser'%}">Create New User</a></button>
+{% endif %}
+{% endblock %}
